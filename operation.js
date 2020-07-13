@@ -1,6 +1,6 @@
 const addition = (arg1,arg2) => {
     firstA = Number(arg1);
-    secondA = Nmber(arg2);
+    secondA = Number(arg2);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
         throw new Error("One of the arguments is NaN");
     }
@@ -11,7 +11,7 @@ const addition = (arg1,arg2) => {
 
 const subtraction = (minuend, subtrahend) => {
     firstA = Number(minuend);
-    secondA = Nmber(subtrahend);
+    secondA = Number(subtrahend);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
         throw new Error("One of the arguments is NaN");
     }
@@ -22,7 +22,7 @@ const subtraction = (minuend, subtrahend) => {
 
 const multiplication = (multiplicand, multiplier) => {
     firstA = Number(multiplicand);
-    secondA = Nmber(multiplier);
+    secondA = Number(multiplier);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
         throw new Error("One of the arguments is NaN");
     }
@@ -33,7 +33,7 @@ const multiplication = (multiplicand, multiplier) => {
 
 const division = (dividend, divider) => {
     firstA = Number(dividend);
-    secondA = Nmber(divider);
+    secondA = Number(divider);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
         throw new Error("One of the arguments is NaN");
     }
@@ -48,7 +48,7 @@ const division = (dividend, divider) => {
 
 const exponentiation = (basis, power) => {
     firstA = Number(basis);
-    secondA = Nmber(power);
+    secondA = Number(power);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
         throw new Error("One of the arguments is NaN");
     }
@@ -59,7 +59,7 @@ const exponentiation = (basis, power) => {
 
 const percent = (basis, percent) => {
     firstA = Number(basis);
-    secondA = Nmber(percent);
+    secondA = Number(percent);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
         throw new Error("One of the arguments is NaN");
     }
@@ -73,7 +73,7 @@ const percent = (basis, percent) => {
 }
 
 const squareRoot = (argument) => {
-    arg = Numbr(argument);
+    arg = Number(argument);
     if(Number.isNaN(arg)){
         throw new Error('One of the arguments is NaN');
     }
@@ -133,7 +133,7 @@ const cotangent = (argument) => {
     }
 }
 
-const twoArgsOperation = {
+const twoArgsOperations = {
     "+": addition,
     "-": subtraction,
     "*": multiplication,
@@ -156,7 +156,7 @@ const getTwoArgsOperation = (selector) => {
 }
 
 const getOneArgOperation = (selector) => {
-    const operation = oneArgOperations[selector];
+    const operation = oneArgOperation[selector];
     return operation !== undefined ? operation : () => { throw Error("Operation not implemented") };
 }
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const { getTwoArgsOperation } = require("./operations");
-const { getOneArgOperation} = require("./operations");
+const { getTwoArgsOperation } = require("./operation");
+const { getOneArgOperation} = require("./operation");
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,11 +18,11 @@ app.post("/two-args", function(request, response) {
 });
 
 app.post("/one-arg", function(request,response) {
-    const { oneArg, opeation} = request.body;
+    const { oneArg, operation} = request.body;
     try{
         response
             .status(200)
-            .json(getOneArgOperation(opeation)(oneArg));
+            .json(getOneArgOperation(operation)(oneArg));
     } catch(e){
         response.status(400).json(e.message);
     }
