@@ -6,7 +6,7 @@ const { getOneArgOperation} = require("./operation");
 const app = express();
 app.use(bodyParser.json());
 
-app.post("/two-args", function(request, response) {
+app.post("/two-args", (request, response) => {
     const { firstArg, secondArg, operation } = request.body;
     try {
         response
@@ -17,7 +17,7 @@ app.post("/two-args", function(request, response) {
     }
 });
 
-app.post("/one-arg", function(request,response) {
+app.post("/one-arg", (request,response) => {
     const { oneArg, operation} = request.body;
     try{
         response
