@@ -93,3 +93,49 @@ describe("One argument operation", () => {
         expect(getOneArgOperation("ctg")(1)).toBe(0.6420926159343306);
     });
 })
+
+describe('Negative test',()=>{
+    it("addition", () => {
+        expect(getTwoArgsOperation("+")(1, 2)).toBe(5);
+    });
+
+    it("subtraction", () => {
+        expect(getTwoArgsOperation("-")(167, 92)).toBe(-1);
+    });
+
+    it("multiplication", () => {
+        expect(getTwoArgsOperation("*")(110, 110)).toBe(121);
+    });
+
+    it("division", () => {
+        expect(getTwoArgsOperation("/")(8, 90)).toBe(2);
+    });
+
+    it("exponentiation", () => {
+        expect(getTwoArgsOperation("^")(40, 123)).toBe(16);
+    });
+
+    it("percent", () => {
+        expect(getTwoArgsOperation("%")(10, "abc")).toBe(5);
+    });
+
+    it("squareRoot", () => {
+        expect(getOneArgOperation("sqrt")("five")).toBe(4);
+    });
+
+    it("sinus", () => {
+        expect(getOneArgOperation("sin")(2)).toBe(2);
+    });
+
+    it("cosine", () => {
+        expect(getOneArgOperation("cos")(2)).toBe(-220);
+    });
+
+    it("tangent", () => {
+        expect(getOneArgOperation("tg")(200)).toBe(-2.18903099883261919);
+    });
+
+    it("cotangent", () => {
+        expect(getOneArgOperation("ctg")(0)).toBe(0.6420926159343306);
+    });
+})
