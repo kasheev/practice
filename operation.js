@@ -1,17 +1,17 @@
-const addition = (arg1,arg2) => {
-    firstA = Number(arg1);
-    secondA = Number(arg2);
-    if(Number.isNaN(firstA) || Number.isNaN(secondA)){
-        throw new Error("One of the arguments is NaN");
+function addition(firstArg, secondArg) {
+    firstArg = Number(firstArg);
+    secondArg = Number(secondArg);
+    if (Number.isNaN(firstArg) || Number.isNaN(secondArg)) {
+        return "One of the arguments is NaN";
     }
-        return firstA + secondA;
+    return firstArg + secondArg;
 }
 
 const subtraction = (minuend, subtrahend) => {
     firstA = Number(minuend);
     secondA = Number(subtrahend);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
-        throw new Error("One of the arguments is NaN");
+        return "One of the arguments is NaN";
     }
         return firstA - secondA;
 }
@@ -20,7 +20,7 @@ const multiplication = (multiplicand, multiplier) => {
     firstA = Number(multiplicand);
     secondA = Number(multiplier);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
-        throw new Error("One of the arguments is NaN");
+        return "One of the arguments is NaN";
     }
         return firstA * secondA;
 }
@@ -29,19 +29,19 @@ const division = (dividend, divider) => {
     firstA = Number(dividend);
     secondA = Number(divider);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
-        throw new Error("One of the arguments is NaN");
+        return "One of the arguments is NaN";
     }
     else if (divider !== 0) {
             return dividend / divider;
         } 
-    throw new Error('Divider can\'t be zero');
+    return 'Divider can\'t be zero';
 }
 
 const exponentiation = (basis, power) => {
     firstA = Number(basis);
     secondA = Number(power);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
-        throw new Error("One of the arguments is NaN");
+        return  "One of the arguments is NaN" ;
     }
         return Math.pow(firstA,secondA);
 }
@@ -50,29 +50,29 @@ const percent = (basis, percent) => {
     firstA = Number(basis);
     secondA = Number(percent);
     if(Number.isNaN(firstA) || Number.isNaN(secondA)){
-        throw new Error("One of the arguments is NaN");
+        return "One of the arguments is NaN" ;
     }
     else if (percent >= 0) {
             return basis * (percent / 100);
         }
-    throw new Error('Percent can\'t be negative');
+    return 'Percent can\'t be negative' ;
 }
 
 const squareRoot = (argument) => {
     arg = Number(argument);
     if(Number.isNaN(arg)){
-        throw new Error('One of the arguments is NaN');
+        return "One of the arguments is NaN" ;
     }
     else if(arg >= 0){
             return Math.sqrt(arg);
         }
-        throw new Error('The argument cannot be negative.');
+        return 'The argument cannot be negative.' ;
 }
 
 const sinus = (argument) =>{
     arg = Number(argument);
     if(Number.isNaN(arg)){
-        throw new Error('One of the arguments is NaN');
+        return "One of the arguments is NaN";
     }
         return Math.sin(arg);
  
@@ -81,7 +81,7 @@ const sinus = (argument) =>{
 const cosine = (argument) => {
     arg = Number(argument);
     if(Number.isNaN(arg)){
-        throw new Error('One of the arguments is NaN');
+        return  "One of the arguments is NaN";
     }
         return Math.cos(arg);
 }
@@ -89,21 +89,22 @@ const cosine = (argument) => {
 const tangent = (argument) => {
     arg = Number(argument);
     if (Number.isNaN(arg)) {
-        throw new Error('One of the arguments is NaN');
+        return  "One of the arguments is NaN" ;
     } else if ((arg % Math.PI/2 !== 0) && (arg % Math.PI/2 + Math.PI !==0) || (arg % Math.PI === 0)){
             return Math.tan(arg);
         }
-    throw new Error('Argument can not be PI/2+PI*k, k∈R');
+        return  'Argument can not be PI/2+PI*k, k∈R';
 }
 
 const cotangent = (argument) => {
     arg = Number(argument);
     if (Number.isNaN(arg)) {
-        throw new Error('One of the arguments is NaN');
+        return  "One of the arguments is NaN" ;
     } else if (arg % Math.PI !== 0){
             return 1 / Math.tan(arg);
-        } 
-    throw new Error('Argument can not be PI*k, k∈R'); 
+        }
+        return 'Argument can not be PI*k, k∈R' ;     
+    
 }
 
 const twoArgsOperations = {

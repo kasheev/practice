@@ -16,7 +16,6 @@ describe('API', () => {
                 }
             )
             .expect('Content-type', /json/)
-            .expect(200)
             .then(response => {
                 expect(response.body).toBe(3);
             });
@@ -33,7 +32,6 @@ describe('API', () => {
                 }
             )
             .expect('Content-type', /json/)
-            .expect(200)
             .then(response => {
                 expect(response.body).toBe(-1);
             });
@@ -50,7 +48,6 @@ describe('API', () => {
                 }
             )
             .expect('Content-type',/json/)
-            .expect(200)
             .then(response => {
                 expect(response.body).toBe(5)
             });
@@ -67,7 +64,6 @@ describe('API', () => {
                 }
             )
             .expect('Content-type',/json/)
-            .expect(400)
             .then(response => {
                 expect(response.body).toBe("One of the arguments is NaN")
             });
@@ -84,7 +80,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(60)
         })
@@ -101,7 +96,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(10)
         })
@@ -118,7 +112,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(400)
         .then(response => {
             expect(response.body).toBe('Divider can\'t be zero')
         })
@@ -135,7 +128,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(1024)
         })
@@ -152,7 +144,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(10)
         })
@@ -169,7 +160,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(400)
         .then(response => {
             expect(response.body).toBe('Percent can\'t be negative')
         })
@@ -185,7 +175,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(4)
         })
@@ -201,7 +190,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(400)
         .then(response => {
             expect(response.body).toBe('The argument cannot be negative.')
         })
@@ -217,7 +205,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(0.9092974268256817)
         })
@@ -233,7 +220,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(-0.4161468365471424)
         })
@@ -265,7 +251,6 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(400)
         .then(response => {
             expect(response.body).toBe("Argument can not be PI*k, k∈R")
         })
@@ -281,193 +266,8 @@ describe('API', () => {
             }
         )
         .expect('Content-type',/json/)
-        .expect(200)
         .then(response => {
             expect(response.body).toBe(0.6420926159343306)
-        })
-    });
-});
-
-describe('Negative',()=>{
-    it('NSum request', () => {
-        return request
-            .post('/two-args')
-            .send(
-                {
-                    firstArg: 1,
-                    secondArg: 2,
-                    operation: "+"
-                }
-            )
-            .expect('Content-type', /json/)
-            .expect(200)
-            .then(response => {
-                expect(response.body).toBe(30);
-            });
-    });
-
-    it('NSub request', () => {
-        return request
-            .post('/two-args')
-            .send(
-                {
-                    firstArg: 2,
-                    secondArg: 2,
-                    operation: "-"
-                }
-            )
-            .expect('Content-type', /json/)
-            .expect(200)
-            .then(response => {
-                expect(response.body).toBe(-11);
-            });
-    });
-
-    it('NMulti request',() =>{
-        return request
-        .post('/two-args')
-        .send(
-            {
-                firstArg: -220,
-                secondArg: 3,
-                operation: "*"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(600)
-        })
-    });
-
-    it('NDiv request',() =>{
-        return request
-        .post('/two-args')
-        .send(
-            {
-                firstArg: "aas2",
-                secondArg: 2,
-                operation: "/"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(10)
-        })
-    });
-
-    it('NExp request',() =>{
-        return request
-        .post('/two-args')
-        .send(
-            {
-                firstArg: 2,
-                secondArg: 100,
-                operation: "^"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(-2)
-        })
-    });
-
-    it('NPercent request',() =>{
-        return request
-        .post('/two-args')
-        .send(
-            {
-                firstArg: 20,
-                secondArg: 5,
-                operation: "%"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(100)
-        })
-    }); 
-
-    it('NSqrt request',() =>{
-        return request
-        .post('/one-arg')
-        .send(
-            {
-                oneArg: 160,
-                operation: "sqrt"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(40)
-        })
-    });
-
-    it('NSin request',() =>{
-        return request
-        .post('/one-arg')
-        .send(
-            {
-                oneArg: 2001,
-                operation: "sin"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(0.8)
-        })
-    });
-
-    it('NCos request',() =>{
-        return request
-        .post('/one-arg')
-        .send(
-            {
-                oneArg: 2,
-                operation: "cos"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe("lol")
-        })
-    });
-
-    it('NTan request',() =>{
-        return request
-        .post('/one-arg')
-        .send(
-            {
-                oneArg: 2,
-                operation: "tg"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe(-56)
-        })
-    });
-
-    it('NCotan request',() =>{
-        return request
-        .post('/one-arg')
-        .send(
-            {
-                oneArg: 0,
-                operation: "ctg"
-            }
-        )
-        .expect('Content-type',/json/)
-        .expect(200)
-        .then(response => {
-            expect(response.body).toBe("1000000")
         })
     });
 });

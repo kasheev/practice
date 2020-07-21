@@ -95,47 +95,63 @@ describe("One argument operation", () => {
 })
 
 describe('Negative test',()=>{
-    it("addition", () => {
-        expect(getTwoArgsOperation("+")(1, 2)).toBe(5);
+    it('test addition error', () => {
+        expect(getTwoArgsOperation("+")(2, "dd")).toBe("One of the arguments is NaN");
     });
 
-    it("subtraction", () => {
-        expect(getTwoArgsOperation("-")(167, 92)).toBe(-1);
+    it('test subtraction error', () => {
+        expect(getTwoArgsOperation("+")(2, "dd")).toBe("One of the arguments is NaN");
     });
 
-    it("multiplication", () => {
-        expect(getTwoArgsOperation("*")(110, 110)).toBe(121);
+    it('test multi error', () => {
+        expect(getTwoArgsOperation("*")(2, "dd")).toBe("One of the arguments is NaN");
     });
 
-    it("division", () => {
-        expect(getTwoArgsOperation("/")(8, 90)).toBe(2);
+    it('test div error', () => {
+        expect(getTwoArgsOperation("/")(2, "dd")).toBe("One of the arguments is NaN");
     });
 
-    it("exponentiation", () => {
-        expect(getTwoArgsOperation("^")(40, 123)).toBe(16);
+    it('test div error', () => {
+        expect(getTwoArgsOperation("/")(2, 0)).toBe('Divider can\'t be zero');
     });
 
-    it("percent", () => {
-        expect(getTwoArgsOperation("%")(10, "abc")).toBe(5);
+    it('test exp error', () => {
+        expect(getTwoArgsOperation("^")(2, 'dd')).toBe("One of the arguments is NaN");
     });
 
-    it("squareRoot", () => {
-        expect(getOneArgOperation("sqrt")("five")).toBe(4);
+    it('test percent error', () => {
+        expect(getTwoArgsOperation("%")(2, 'dd')).toBe("One of the arguments is NaN");
     });
 
-    it("sinus", () => {
-        expect(getOneArgOperation("sin")(2)).toBe(2);
+    it('test percent error', () => {
+        expect(getTwoArgsOperation("%")(2, -1)).toBe('Percent can\'t be negative');
     });
 
-    it("cosine", () => {
-        expect(getOneArgOperation("cos")(2)).toBe(-220);
+    it('test sqrt error', () => {
+        expect(getOneArgOperation("sqrt")('dd')).toBe("One of the arguments is NaN");
+    });
+    
+    it('test sqrt error', () => {
+        expect(getOneArgOperation("sqrt")(-1)).toBe('The argument cannot be negative.');
     });
 
-    it("tangent", () => {
-        expect(getOneArgOperation("tg")(200)).toBe(-2.18903099883261919);
+    it('test sin error', () => {
+        expect(getOneArgOperation("sin")('dd')).toBe("One of the arguments is NaN");
     });
 
-    it("cotangent", () => {
-        expect(getOneArgOperation("ctg")(0)).toBe(0.6420926159343306);
+    it('test cos error', () => {
+        expect(getOneArgOperation("cos")('dd')).toBe("One of the arguments is NaN");
+    });
+
+    it('test tg error', () => {
+        expect(getOneArgOperation("tg")('dd')).toBe("One of the arguments is NaN");
+    });
+
+    it('test ctg error', () => {
+        expect(getOneArgOperation("ctg")('d')).toBe("One of the arguments is NaN");
+    });
+
+    it('test ctg error', () => {
+        expect(getOneArgOperation("ctg")(0)).toBe('Argument can not be PI*k, k∈R');
     });
 })
